@@ -6,29 +6,26 @@
             </v-tool-bar-title>
             <v-spacer></v-spacer>
             <router-link class="links" to="/">Home</router-link>
-            <router-link class="links" to="/login">Login</router-link>
-            <router-link  class="links" to="/contact">Contact Us</router-link>
+            <router-link class="links" to="/signup">Sign Up</router-link>
+            <router-link class="links" to="/contact">Contact Us</router-link>
         </v-app-bar>
 
         <div class="content">
             <v-main>
                 <v-card class="card" :transparent="true">
-                    <img src="@/assets/reg.png" height="200px" alt="login">
-                        <!-- <v-card-title></v-card-title> -->
+                    <img src="@/assets/login.png" height="250px" alt="login">
+                        <!-- <v-card-title>Login</v-card-title> -->
                             <v-card-text>
-                                <v-text-field  v-model="firstName" label = "First Name" :rules="[v => !!v || 'Field is required']"></v-text-field>
-                                <v-text-field v-model="lastName" label = "Last Name" :rules="[v => !!v || 'Field is required']"></v-text-field>
-                                <v-text-field  v-model="userName" label = "Username" :rules="[v => !!v || 'Field is required']"></v-text-field>
-                                <v-text-field v-model="email" label = "Email" :rules="[v => !!v || 'Field is required']"></v-text-field>
+                                <v-text-field v-model="username" label = "Username" :rules="[v => !!v || 'Field is required']"></v-text-field>
                                 <v-text-field  v-model="password" label = "Password" 
                                                 :type="showPassword ? 'text' :'password'"
                                                 :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                                                 @click:append="showPassword =! showPassword" :rules="[v => !!v || 'Field is required']"/>
                                                 <!-- :type if showpass is true, I want text propery, if its false, i want the property to be false-->
                                                 <!-- if showPassword is true (?), then show the eye('mdi-eye') : if its false show no pass(mdi-eye-off) -->
-                                                <v-btn class="signupbtn" @click="signup">Sign up</v-btn>
-                                                    <div v-if="result">
-                                                        <p>{{result}}</p>
+                                                <v-btn @click="login">login</v-btn>
+                                                        <div v-if="result">
+                                                            <p>{{result}}</p>    
                                                     </div>
                             </v-card-text>
                 </v-card>
@@ -39,46 +36,51 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 import cookies from 'vue-cookies'
+// import GetQuote from '@/components/GetQuote.vue'
 import router from '@/router'
 
-
     export default {
-        name: "UserSignup",
+        name: "LogIn",
         data() {
             return {
                 result: "",
-                firstName: "",
-                lastName: "",
-                userName:"",
-                email: "",
+                username: "",
                 password: "",
                 showPassword: false
             }
         },
-            methods:{
-                signup(){
-                    axios.request({
-                        url:"http://127.0.0.1:5000/api/user",
-                        method: "POST",
-                        data:{
-                            firstName : this.firstName,
-                            lastName: this.lastName,
-                            userName: this.userName,
-                            email: this.email,
-                            password: this.password
-                        }
-                    }).then((response)=>{
-                        cookies.set(`token`,response.data[1])
-                        this.result = "signed up"
-                        router.push('/profile')
-                    }).catch(()=>{
-                        this.result = "Please enter all required fields!"
-                    })
+        methods:{
+            login(){
+                if(this.username, this.password ===''){
+                    this.result = "Please enter a valid username and password"
+                    return
                 }
+                axios.request({
+                    url:"http://127.0.0.1:5000/api/user-login",
+                    method : "POST",
+                    data:{
+                        username : this.username,
+                        password: this.password
+                    },
+                }).then((response)=>{
+                    // [0] will return the first element of the return 200 msg
+                    // [1] will return the second item(token) of the return 200 msg
+                    if (response.data[0] === "Logged in successfully"){
+                        cookies.set(`token`,response.data[1])
+                        router.push('/profile')
+                    } else{
+                        this.result = "Login failed, please check the username or password."
+                    }
+                    // router.push('/profile')
+                }).catch((error)=>{
+                    console.log(error.response.data);
+                    // this.result = "Please enter required fields"
+                });
             }
-    };
+        }
+    }
 </script>
 
 <style scoped>
@@ -91,19 +93,12 @@ import router from '@/router'
 }
 
 .card{
-    width: 700px;
-    height: 750px;
-    background-color: transparent;
+    width: 650px;
+    height: 600px;
     background-color: rgba(99, 202, 221, 0.142);
     border: 1px solid;
     padding: 10px;
     box-shadow: 20px 10px 18px #53dce6;
-}
-
-.signupbtn{
-    margin-top: 6%;
-    background: url('@/assets/cloudy.png');
-    background-size: cover;
 }
 
 .links{
@@ -114,13 +109,15 @@ import router from '@/router'
     font-size: 18px;
     letter-spacing: 0.5px;
     box-shadow: 10px 10px 18px #53dce6;
+    
 }
+
 
 .links:before,
 .links:after{
     content: "";
     position: absolute;
-    height: 6px;
+    height: 5px;
     width: 0;
     background-color: rgb(145, 204, 241);
     transition: 0.5s;
@@ -140,6 +137,4 @@ import router from '@/router'
     width: 100%;
 }
 
-
 </style>
-

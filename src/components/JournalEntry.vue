@@ -1,12 +1,13 @@
 <template>
     <div>
-
+        <h1>Your journal</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name: "JournalEntry"
+        name: "JournalEntry",
+        
     }
 </script>
 
