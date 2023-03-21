@@ -83,24 +83,7 @@ import router from '@/router'
     }
 </script>
 
-<style scoped>
-.content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    margin-left: 28%;
-}
-
-.card{
-    width: 650px;
-    height: 600px;
-    background-color: rgba(99, 202, 221, 0.142);
-    border: 1px solid;
-    padding: 10px;
-    box-shadow: 20px 10px 18px #53dce6;
-}
-
+<style>
 .links{
     width: 7vw;
     position: relative;
@@ -136,5 +119,23 @@ import router from '@/router'
 .links:hover:before{
     width: 100%;
 }
+</style>
 
+<style scoped>
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin-left: 28%;
+}
+
+.card{
+    width: 650px;
+    height: 600px;
+    background-color: rgba(99, 202, 221, 0.142);
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 20px 10px 18px #53dce6;
+}
 </style>

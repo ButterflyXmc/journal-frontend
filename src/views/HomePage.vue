@@ -41,7 +41,6 @@ html{
     text-align: center;
     background-image: url('@/assets/re.png');
     background-size: cover;
-    /* will center the image within the element, regardless of its size. */
     background-position: center center;
     background-repeat: no-repeat;
     font-family: 'Poppins', sans-serif;
