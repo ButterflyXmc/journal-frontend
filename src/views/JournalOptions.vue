@@ -157,15 +157,15 @@ import UserLogout from '@/components/UserLogout.vue'
 	overflow-y: auto; 
 }
 .journal-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .update-form, .delete-form {
-  flex-basis: 100%;
-  max-width: 600px;
-  margin: 20px;
+    flex-basis: 100%;
+    max-width: 600px;
+    margin: 20px;
 }
 
 img{

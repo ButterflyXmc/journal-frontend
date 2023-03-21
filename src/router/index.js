@@ -1,16 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
+
 import JournalOptions from '@/views/JournalOptions.vue'
 import UserSignup from '@/components/UserSignup.vue'
 import SeeProfile from '@/components/SeeProfile.vue'
 import UserLogin from '@/components/UserLogin.vue'
 import ContactUs from '@//components/ContactUs.vue'
 import JournalEntry from '@/components/JournalEntry.vue'
-import NewEntry from '@/components/NewEntry.vue'
+import AmEntry from '@/components/AmEntry.vue'
+import PmEntry from '@/components/PmEntry.vue'
 import UserLogout from '@/components/UserLogout.vue'
 import DeleteEntry from '@/components/DeleteEntry.vue'
 import EditEntries from '@/components/EditEntries.vue'
+import CalanderView from '@/components/CalanderView.vue'
+
 
 
 Vue.use(VueRouter)
@@ -41,8 +45,12 @@ const routes = [
     component: JournalEntry
   },
   {
-    path: '/new-journal',
-    component: NewEntry
+    path: '/am',
+    component: AmEntry
+  },
+  {
+    path: "/pm",
+    component: PmEntry
   },
   {
     path: '/logout',
@@ -59,6 +67,10 @@ const routes = [
   {
     path: '/options',
     component: JournalOptions
+  },
+  {
+    path: '/CalanderView',
+    component: CalanderView
   }
 ]
 
