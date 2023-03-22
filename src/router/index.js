@@ -8,8 +8,7 @@ import SeeProfile from '@/components/SeeProfile.vue'
 import UserLogin from '@/components/UserLogin.vue'
 import ContactUs from '@//components/ContactUs.vue'
 import JournalEntry from '@/components/JournalEntry.vue'
-import AmEntry from '@/components/AmEntry.vue'
-import PmEntry from '@/components/PmEntry.vue'
+import NewEntry from '@/components/NewEntry.vue'
 import UserLogout from '@/components/UserLogout.vue'
 import DeleteEntry from '@/components/DeleteEntry.vue'
 import EditEntries from '@/components/EditEntries.vue'
@@ -45,12 +44,8 @@ const routes = [
     component: JournalEntry
   },
   {
-    path: '/am',
-    component: AmEntry
-  },
-  {
-    path: "/pm",
-    component: PmEntry
+    path: '/new-entry',
+    component: NewEntry
   },
   {
     path: '/logout',

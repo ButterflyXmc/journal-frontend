@@ -9,31 +9,33 @@
             <router-link class="links" to="/login">Login</router-link>
             <router-link  class="links" to="/contact">Contact Us</router-link>
         </v-app-bar>
-
-        <div class="content">
-            <v-main>
-                <v-card class="card" :transparent="true">
-                    <img src="@/assets/reg.png" height="200px" alt="login">
-                        <!-- <v-card-title></v-card-title> -->
-                            <v-card-text>
-                                <v-text-field  v-model="firstName" label = "First Name" :rules="[v => !!v || 'Field is required']"></v-text-field>
-                                <v-text-field v-model="lastName" label = "Last Name" :rules="[v => !!v || 'Field is required']"></v-text-field>
-                                <v-text-field  v-model="userName" label = "Username" :rules="[v => !!v || 'Field is required']"></v-text-field>
-                                <v-text-field v-model="email" label = "Email" :rules="[v => !!v || 'Field is required']"></v-text-field>
-                                <v-text-field  v-model="password" label = "Password" 
-                                                :type="showPassword ? 'text' :'password'"
-                                                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                                                @click:append="showPassword =! showPassword" :rules="[v => !!v || 'Field is required']"/>
-                                                <!-- :type if showpass is true, I want text propery, if its false, i want the property to be false-->
-                                                <!-- if showPassword is true (?), then show the eye('mdi-eye') : if its false show no pass(mdi-eye-off) -->
-                                                <v-btn class="signupbtn" @click="signup">Sign up</v-btn>
-                                                    <div v-if="result">
-                                                        <p>{{result}}</p>
-                                                    </div>
-                            </v-card-text>
-                </v-card>
-            </v-main>
-        </div>
+        <section class="home">
+            <div class="content">
+                        <v-main>
+                            <v-card class="card" :transparent="true">
+                                <img src="@/assets/reg.png" height="200px" alt="login">
+                                    <!-- <v-card-title></v-card-title> -->
+                                        <v-card-text>
+                                            <v-text-field  v-model="firstName" label = "First Name" :rules="[v => !!v || 'Field is required']"></v-text-field>
+                                            <v-text-field v-model="lastName" label = "Last Name" :rules="[v => !!v || 'Field is required']"></v-text-field>
+                                            <v-text-field  v-model="userName" label = "Username" :rules="[v => !!v || 'Field is required']"></v-text-field>
+                                            <v-text-field v-model="email" label = "Email" :rules="[v => !!v || 'Field is required']"></v-text-field>
+                                            <v-text-field  v-model="password" label = "Password" 
+                                                            :type="showPassword ? 'text' :'password'"
+                                                            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                                                            @click:append="showPassword =! showPassword" :rules="[v => !!v || 'Field is required']"/>
+                                                            <!-- :type if showpass is true, I want text propery, if its false, i want the property to be false-->
+                                                            <!-- if showPassword is true (?), then show the eye('mdi-eye') : if its false show no pass(mdi-eye-off) -->
+                                                            <v-btn class="signupbtn" @click="signup">Sign up</v-btn>
+                                                                <div v-if="result">
+                                                                    <p>{{result}}</p>
+                                                                </div>
+                                        </v-card-text>
+                            </v-card>
+                        </v-main>
+                    </div>
+        </section>
+        
         <!-- <div class="quote"><GetQuote/></div> -->
     </div>
 </template>
@@ -138,6 +140,16 @@ import router from '@/router'
 .links:hover:after,
 .links:hover:before{
     width: 100%;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url('@/assets/clouds.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 </style>
 

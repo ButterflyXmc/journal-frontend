@@ -10,6 +10,7 @@
             <router-link class="links" to="/contact">Contact Us</router-link>
         </v-app-bar>
 
+    <section class="home">
         <div class="content">
             <v-main>
                 <v-card class="card" :transparent="true">
@@ -31,6 +32,8 @@
                 </v-card>
             </v-main>
         </div>
+    </section>
+        
         <!-- <div class="quote"><GetQuote/></div> -->
     </div>
 </template>
@@ -118,6 +121,7 @@ import router from '@/router'
 .links:hover:before{
     width: 100%;
 }
+
 </style>
 
 <style scoped>

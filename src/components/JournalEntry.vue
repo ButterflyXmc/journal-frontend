@@ -5,8 +5,8 @@
                 <v-spacer></v-spacer>
                     <div class="links"><UserLogout></UserLogout></div>
                     <router-link class="links" to="/profile"> Your Account</router-link>
-                    <router-link class="links" to="/am"> New Journal</router-link>
-                    <router-link class="links" to="/contact">Contact Us</router-link>
+                    <router-link class="links" to="/new-entry"> New Journal</router-link>
+                    <!-- <router-link class="links" to="/contact">Contact Us</router-link> -->
                     <router-link class="links" to="/options">Journal options</router-link>
         </v-app-bar>
             
@@ -14,10 +14,10 @@
                     <v-container>
                             <v-row>
                                 <v-col v-for="e in entries" :key="e.id" cols="12" md="6" lg="4" xl="3">
-                                    <v-card>
+                                    <v-card class="am">
                                         <v-card-title>
-                                            <!-- we're creating a new Date object from the created_at property of the e object, 
-                                            and then converting it to an ISO string using toISOString(). We're then using the 
+                                            <!-- I'm creating a new Date object from the created_at property of the e object, 
+                                            and then converting it to an ISO string using toISOString(). I'm then using the 
                                             slice() method to extract the first 10 characters of the string, which correspond 
                                             to the yyyy-mm-dd part of the string. -->
                                             {{ new Date(e.created_at).toISOString().slice(0, 10) }}
@@ -25,40 +25,44 @@
                                             <v-card-text>
                                                 <h2>AM</h2>
                                                 <div>Entry ID: {{ e.entryId }}</div>
-                                                <div>Grateful 1: {{ e.grateful1 }}</div>
-                                                <div>Grateful 2: {{ e.grateful2 }}</div>
-                                                <div>Grateful 3: {{ e.grateful3 }}</div>
-                                                <div>Great 1: {{ e.great1 }}</div>
-                                                <div>Great 2: {{ e.great2 }}</div>
+                                                <h4>I am grateful for...</h4>
+                                                <div>1. {{ e.grateful1 }}</div>
+                                                <div>2. {{ e.grateful2 }}</div>
+                                                <div>3. {{ e.grateful3 }}</div>
+                                                <h4>What would make today great?</h4>
+                                                <div>1. {{ e.great1 }}</div>
+                                                <div>2.{{ e.great2 }}</div>
+                                                <h4>Daily affirmation</h4>
                                                 <div>Affirm 1: {{ e.affirm1 }}</div>
-                                                <div>Affirm 2: {{ e.affirm2 }}</div>                                        
+                                                <div>Affirm 2: {{ e.affirm2 }}</div>                                    
                                             </v-card-text>
+                                            
                                     </v-card>
                                 </v-col>
                             </v-row>
-                    </v-container>
-
-
-                    <v-container>
+                            
+                            <v-container>
                                 <v-row>
                                     <v-col  v-for="i in pm_e" :key="i.id" cols="12" md="6" lg="4" xl="3">
-                                        <v-card>
+                                        <v-card class="pm">
                                             <v-card-title>
                                                 {{ new Date(i.created_att).toISOString().slice(0, 10) }}
                                             </v-card-title>
-
                                             <v-card-text>
                                                     <h2>PM</h2>
                                                     <div> Enrty Id: {{ i.entryIdd }}</div>
-                                                    <div> highlights1: {{ i.highlights1}}</div>
-                                                    <div>highlights2: {{ i.highlights2 }}</div>
-                                                    <div> learn1: {{ i.learn1 }}</div>
-                                                    <div>learn2: {{ i.learn2 }}</div>
+                                                    <h4>Highlights of the Day</h4>
+                                                    <div> 1. {{ i.highlights1}}</div>
+                                                    <div>2.{{ i.highlights2 }}</div>
+                                                    <h4>What did I learn today?</h4>
+                                                    <div>1.{{ i.learn1 }}</div>
+                                                    <div>2.{{ i.learn2 }}</div>
                                             </v-card-text>
                                         </v-card>
                                     </v-col>
                                 </v-row>
                         </v-container>
+                    </v-container>
             </v-container>
 
     </div>
@@ -177,11 +181,14 @@ import UserLogout from '@/components/UserLogout.vue'
     font-size: 20px;
     color: #4d7f8a;
 }
-.v-card{
+.am{
     background-color: rgba(132, 203, 218, 0.231);
 }
-.grid{
+.pm{
+    background-color: rgba(8, 60, 202, 0.17);
+}
+/* .grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
+} */
 </style>

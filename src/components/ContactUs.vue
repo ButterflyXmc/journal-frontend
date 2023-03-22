@@ -9,6 +9,39 @@
             <router-link class="links" to="/login">Login</router-link>
             <router-link  class="links" to="/signup">Sign up</router-link>
         </v-app-bar>
+                <div class=" content">
+                    <div class="bc">
+                        <h3>THE FIVE MINUTE JOURNAL</h3>
+                            <span>Journal in clouds</span>
+                                <p>Journal in clouds and manifest your life. With our Five Minute Journal, 
+                                    you can embrace the fluidity of both clouds and life, and find beauty 
+                                    in the journey. Capture your thoughts and ideas in the clouds, and 
+                                    let them inspire you to create the life you want.</p>
+                                <p>
+                                    Welcome to our Five Minute Journal, where you can journal in the clouds 
+                                    and manifest your life. As you write your thoughts and ideas, watch them 
+                                    shift and change like the clouds in the sky. Embrace the fluidity of both 
+                                    clouds and life, and find beauty in the journey.
+                                </p>
+
+                                <p>
+                                    With our journal, you have the opportunity to reflect on your past, 
+                                    focus on your present, and visualize your future. Use the power of the 
+                                    clouds to manifest your dreams and goals, and make them a reality.
+                                </p>
+
+                                <p>Our journal is designed to help you cultivate a positive mindset, 
+                                    build self-awareness, and develop a sense of gratitude. With just 
+                                    five minutes a day, you can transform your life and create a 
+                                    brighter future.</p>
+                                
+                                <p>
+                                    So start journaling in the clouds today, and let your thoughts soar 
+                                    like the birds in the sky. The possibilities are endless.
+                                </p>
+                    </div>
+                </div> 
+
     </div>
 </template>
 
