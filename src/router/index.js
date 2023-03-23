@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
 
-import JournalOptions from '@/views/JournalOptions.vue'
 import UserSignup from '@/components/UserSignup.vue'
 import SeeProfile from '@/components/SeeProfile.vue'
 import UserLogin from '@/components/UserLogin.vue'
@@ -10,9 +9,8 @@ import ContactUs from '@//components/ContactUs.vue'
 import JournalEntry from '@/components/JournalEntry.vue'
 import NewEntry from '@/components/NewEntry.vue'
 import UserLogout from '@/components/UserLogout.vue'
-import DeleteEntry from '@/components/DeleteEntry.vue'
-import EditEntries from '@/components/EditEntries.vue'
 import CalanderView from '@/components/CalanderView.vue'
+import DeleteAcct from '@/components/DeleteAcct.vue'
 
 
 
@@ -52,20 +50,12 @@ const routes = [
     component: UserLogout
   },
   {
-    path: '/delete-entry',
-    component: DeleteEntry
-  },
-  {
-    path: '/edit',
-    component: EditEntries
-  },
-  {
-    path: '/options',
-    component: JournalOptions
-  },
-  {
     path: '/CalanderView',
     component: CalanderView
+  },
+  {
+    path: '/delete-acct',
+    component:DeleteAcct
   }
 ]
 

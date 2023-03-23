@@ -2,7 +2,7 @@
     <div>
         <v-app-bar app color= #4d7f8a>
             <v-tool-bar-title>
-                <img src="@/assets/cl.png" alt="clouds">
+                <img class="cloudImg" src="@/assets/cl.png" alt="clouds">
             </v-tool-bar-title>
             <v-spacer></v-spacer>
             <router-link class="links" to="/">Home</router-link>

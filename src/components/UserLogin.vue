@@ -2,7 +2,7 @@
     <div>
         <v-app-bar app color= #4d7f8a>
             <v-tool-bar-title>
-                <img src="@/assets/cl.png" alt="clouds">
+                <img class="cloudImg" src="@/assets/cl.png" alt="clouds">
             </v-tool-bar-title>
             <v-spacer></v-spacer>
             <router-link class="links" to="/">Home</router-link>
@@ -14,6 +14,7 @@
         <div class="content">
             <v-main>
                 <v-card class="card" :transparent="true">
+                    <h2>Write what should not be forgotten.</h2>
                     <img src="@/assets/login.png" height="250px" alt="login">
                         <!-- <v-card-title>Login</v-card-title> -->
                             <v-card-text>
@@ -87,44 +88,78 @@ import router from '@/router'
 </script>
 
 <style>
-.links{
-    width: 7vw;
-    position: relative;
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    box-shadow: 10px 10px 18px #53dce6;
-    
+.cloudImg{
+    height: 400px;
 }
 
-.links:before,
-.links:after{
-    content: "";
-    position: absolute;
-    height: 5px;
-    width: 0;
-    background-color: rgb(145, 204, 241);
-    transition: 0.5s;
-}
-.links:after{
-    left: 0;
-    bottom: -10px;
-}
-
-.links:before{
-    right: 0;
-    top: -10px;
+.links {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background-color: #4d7f8a;
+  box-shadow: 10px 10px 18px #53dce6;
+  transition: all 0.3s ease-in-out;
 }
 
-.links:hover:after,
-.links:hover:before{
+.links:hover {
+  transform: translateY(-3px);
+  box-shadow: 15px 15px 25px #53dce6;
+  background-color: #53dce6;
+}
+
+/* ................................................................... */
+/*DESKTOP MEDIA QUERY*/
+
+/* @media only screen and (min-width:1000px) */
+
+
+/* TABLET */
+@media screen and (max-width: 899px) and (min-width: 600px) {
+  .links {
+    display: block;
+    /* margin: 20px; */
+    text-align: center;
+    width: 80%;
+  }
+
+  .cloudImg{
+    height: 150px;
+}
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) and (min-width: 390px) {
+  .links {
+    display: block;
+    /* margin: 20px; */
+    text-align: center;
     width: 100%;
-}
+    padding: 7px;
+    font-size: 8px;
+  }
 
+  .cloudImg{
+    height: 80px;
+    margin-left: -30%;
+}
+}
 </style>
 
 <style scoped>
+h2{
+    color: white;
+    background: rgba(8, 95, 110, 0.235);
+    border-radius: 20px;
+    font-family: Snell Roundhand, cursive;
+    font-size: 2.4em;
+
+}
 .content{
     display: flex;
     justify-content: center;
@@ -140,5 +175,33 @@ import router from '@/router'
     border: 1px solid;
     padding: 10px;
     box-shadow: 20px 10px 18px #53dce6;
+}
+
+@media screen and (max-width: 899px) and (min-width: 600px) {
+    .content {
+        margin: 0;
+    }
+    .card {
+        width: 70%;
+        margin-left: 15%;
+        height: auto;
+    }
+}
+
+
+@media screen and (max-width: 600px) and (min-width: 390px) {
+    .content {
+    margin: 0;
+    }
+    .card {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: -15%;
+        height: auto;
+    }
+    img{
+        height: 100px;
+        margin-top: 10%;
+    }
 }
 </style>

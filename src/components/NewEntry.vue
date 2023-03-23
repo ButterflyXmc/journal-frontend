@@ -1,11 +1,10 @@
 <template>
     <div class="content">
         <v-app-bar app color='#4d7f8a'>
-            <img src="@/assets/cl.png" alt="clouds">
+            <img class="cloudImg" src="@/assets/cl.png" alt="clouds">
                 <v-spacer></v-spacer>
                     <div class="links"><UserLogout></UserLogout></div>
                     <router-link class="links" to="/">Home</router-link>
-                    <router-link class="links" to="/pm"> PM Journal</router-link>
                     <router-link class="links" to="/journal"> My Journal</router-link>
                     <!-- <router-link class="links" to="/contact">Contact Us</router-link> -->
         </v-app-bar>

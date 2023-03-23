@@ -1,14 +1,15 @@
 <template>
     <div>
         <v-app-bar app color= #4d7f8a>
-                <v-tool-bar-title>
-                    <img class="journal" src="@/assets/cl.png" alt="clouds">
-                </v-tool-bar-title>
-                        <v-spacer></v-spacer>
-                        <router-link class="links" to="/contact"> Contact Us</router-link>
-                        <router-link class="links" to="/login">Login</router-link>
-                        <router-link  class="links" to="/signup">Sign up</router-link>
+            <v-tool-bar-title>
+                <img class="journal" src="@/assets/cl.png" alt="clouds">
+            </v-tool-bar-title>
+                <v-spacer></v-spacer>
+                <router-link class="links" to="/contact"> Contact Us</router-link>
+                <router-link class="links" to="/login">Login</router-link>
+                <router-link  class="links" to="/signup">Sign up</router-link>
         </v-app-bar>
+
             <section class="home">
                 <div class=" content">
                     <div class="bc">
@@ -40,16 +41,9 @@
     </div>
 </template>
 
-// <script>
-// import GetQuote from '@/components/GetQuote.vue'
-
-
+<script>
     export default {
         name:"HomePage",
-        // components:{
-        //     GetQuote,
-        // },
-    
     }
 </script>
 
@@ -60,7 +54,6 @@ html{
     text-align: center;
 }
 </style>
-
 
 <style scoped>
 .journal{
@@ -142,96 +135,4 @@ img{
     text-align: center;
     font-size: 1.5em;
 }
-
-
-
-
 </style>
-
-
-
-
-
-    <!-- <div class="quote"><GetQuote/></div> -->
-
-        <!-- <div class="grid">
-            <div class="grid-item">
-                <router-link to="/signup">
-                <img class="ring1" src="@/assets/reg.png" alt="signup">
-                </router-link>
-            </div>
-            <div class="grid-item">
-                <router-link to="/login">
-                <img class="ring2" src="@/assets/login.png" alt="login">
-                </router-link>
-            </div>
-        </div>       -->
-
-
-
-
-// html{
-//     margin: 0;
-//     padding: 0;
-//     text-align: center;
-//     background-image: url('@/assets/re.png');
-//     background-size: cover;
-//     background-position: center center;
-//     background-repeat: no-repeat;
-//     font-family: 'Poppins', sans-serif;
-//     height: 100%;
-// }
-
-// .quote{
-//     color: #4d7f8a;
-//     background-color: #9092981d;
-//     border: solid 1px;
-//     border-color: rgb(209, 192, 98);
-//     text-align: center;
-//     width: 100%;
-//     font-size: 1.2em;
-//     position: absolute;
-//     top: 43%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-// }
-
-
-// SCOOPED
-
-// header {
-//     color: #40AEC7;
-//     font-family: Georgia, serif;
-//     font-size: 2em;
-//     position: absolute;
-//     width: 10%;
-//     top: 20%;
-//     left: 38%;
-//     transform: translateY(-50%);
-//     display: flex;
-//     align-items: flex-start;
-// }
-
-// .grid {
-//     display: grid;
-//     grid-template-columns: repeat(2, 0.6fr);
-//     grid-column-gap: 0px;
-//     justify-items: center;
-//     margin-top: 40vh;
-//     grid-template-rows: 50vh; 
-//     grid-row-gap: 10px; 
-//     align-items: center;
-// }
-
-// .grid-item {
-//     width: 100%;
-//     height: 100%;
-// }
-
-// .ring1 {
-//     height: 123%;
-// }
-
-// .ring2 {
-//     height: 123%;
-// }

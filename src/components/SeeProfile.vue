@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-app-bar app color='#4d7f8a'>
-                <img src="@/assets/cl.png" alt="clouds">
+                <img class="cloudImg" src="@/assets/cl.png" alt="clouds">
                 <v-spacer></v-spacer>
                 <router-link class="links" to="/journal">Your Journal</router-link>
                 <div class="links"><UserLogout></UserLogout></div>
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <div><v-btn class="dbtn" @click="delete_acct">Delete Account</v-btn></div>
+                        <router-link class="delete" to="/delete-acct">Delete Account</router-link>
                         <div v-if="response">{{ response }}</div>
                     </div>
 
@@ -48,7 +48,7 @@ import UserLogout from '@/components/UserLogout.vue'
 
 import axios from "axios";
 import cookies from "vue-cookies";
-import router from '@/router';
+// import router from '@/router';
 
 export default {
     name: "SeeProfile",
@@ -91,21 +91,17 @@ export default {
                             url: "http://127.0.0.1:5000/api/user",
                             method: "PATCH",
                             data: {
-                                firstName: this.firstName,
-                                lastName: this.lastName,
-                                username: this.username,
-                                email: this.email,
+                                firstName: this.firstName || undefined,
+                                lastName: this.lastName || undefined,
+                                username: this.username || undefined,
+                                email: this.email || undefined
                             },
                             headers: {
                                 token: this.token,
                             },
                             }).then(() => {
-                                this.response = "Account Updated successfully!";
-                                // Update the user data displayed in the component
-                                this.users[0].firstname = this.firstName;
-                                this.users[0].lastname = this.lastName;
-                                this.users[0].username = this.username;
-                                this.users[0].email = this.email;
+                                // the page needs to be reloaded in order to display the updated content
+                                location.reload();
                                 this.editUser = false;
                             }).catch((error) => {
                                 console.log(error);
@@ -114,23 +110,6 @@ export default {
                             cancelEdit(){
                                 this.editUser = false;
                             },
-                                delete_acct(){
-                                    this.token = cookies.get(`token`);
-                                    axios
-                                        .request({
-                                        url: "http://127.0.0.1:5000/api/user",
-                                        method: "DELETE",
-                                        headers: {
-                                            token: this.token,
-                                        },
-                                        }).then(() => {
-                                        // console.log("Acct deleted");
-                                        router.push('/')
-                                        }).catch((error) => {
-                                        console.log(error);
-                                        });
-                                        
-                                },
                 },
                         mounted() {
                             this.getUser();
@@ -152,6 +131,40 @@ html{
 
 
 <style scoped>
+.delete{
+    width: 7vw;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    background-color: #60b7bd;
+    box-shadow: 10px 10px 18px rgba(255, 0, 0, 0.282)
+}
+.delete:before,
+.delete:after{
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 0;
+    background-color: rgba(241, 145, 145, 0.838);
+    transition: 0.5s;
+}
+.delete:after{
+    left: 0;
+    bottom: -10px;
+}
+
+.delete:before{
+    right: 0;
+    top: -10px;
+}
+
+.delete:hover:after,
+.delete:hover:before{
+    width: 100%;
+}
+
 h1{
     margin-top: 20px;
 }
@@ -165,7 +178,7 @@ h4{
 .card-container {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 6%;
 }
 
 .card {
@@ -203,7 +216,7 @@ h4{
 
 .card-edit {
     padding: 10px;
-    background-color: rgba(120, 183, 183, 0.193);
+    background-color: rgba(186, 224, 239, 0.614)
 }
 
 .btn{
