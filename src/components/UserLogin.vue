@@ -93,62 +93,75 @@ import router from '@/router'
 }
 
 .links {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  padding: 10px 15px;
-  margin: 0 5px;
-  border-radius: 5px;
-  background-color: #4d7f8a;
-  box-shadow: 10px 10px 18px #53dce6;
-  transition: all 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: #4d7f8a;
+    box-shadow: 10px 10px 18px #53dce6;
+    transition: all 0.3s ease-in-out;
 }
 
 .links:hover {
-  transform: translateY(-3px);
-  box-shadow: 15px 15px 25px #53dce6;
-  background-color: #53dce6;
-}
+    transform: translateY(-3px);
+    box-shadow: 15px 15px 25px #53dce6;
+    background-color: #53dce6;
+    }
 
 /* ................................................................... */
-/*DESKTOP MEDIA QUERY*/
 
-/* @media only screen and (min-width:1000px) */
-
-
-/* TABLET */
 @media screen and (max-width: 899px) and (min-width: 600px) {
-  .links {
+    .links {
     display: block;
-    /* margin: 20px; */
     text-align: center;
     width: 80%;
-  }
-
-  .cloudImg{
-    height: 150px;
+    }
+    .cloudImg{
+        height: 150px;
+    }
+    .content {
+        margin: 0;
+    }
+    .card {
+        width: 70%;
+        margin-left: 15%;
+        height: auto;
+    }
 }
-}
 
-/* MOBILE */
+
 @media screen and (max-width: 600px) and (min-width: 390px) {
-  .links {
-    display: block;
-    /* margin: 20px; */
-    text-align: center;
-    width: 100%;
-    padding: 7px;
-    font-size: 8px;
-  }
+    .content {
+    margin: 0;
+    }
+    .card {
+        width: 350px;
+        margin-left: -20%;
+        margin-top: -15%;
+    }
+    img{
+        height: 100px;
+        margin-top: 10%;
+    }
+    .links {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 7px;
+        font-size: 0.6em;
+    }
 
-  .cloudImg{
-    height: 80px;
-    margin-left: -30%;
+    .cloudImg{
+        height: 80px;
+        margin-left: -30%;
+    }
 }
-}
+
 </style>
 
 <style scoped>
@@ -158,7 +171,6 @@ h2{
     border-radius: 20px;
     font-family: Snell Roundhand, cursive;
     font-size: 2.4em;
-
 }
 .content{
     display: flex;
@@ -176,32 +188,33 @@ h2{
     padding: 10px;
     box-shadow: 20px 10px 18px #53dce6;
 }
-
-@media screen and (max-width: 899px) and (min-width: 600px) {
-    .content {
-        margin: 0;
-    }
-    .card {
-        width: 70%;
-        margin-left: 15%;
-        height: auto;
-    }
-}
-
-
 @media screen and (max-width: 600px) and (min-width: 390px) {
     .content {
     margin: 0;
     }
     .card {
-        width: 90%;
-        margin-left: 5%;
+        width: 350px;
+        margin-left: 6%;
         margin-top: -15%;
-        height: auto;
     }
     img{
         height: 100px;
         margin-top: 10%;
+    }
+    .links {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 7px;
+        font-size: 8px;
+    }
+    h2{
+        font-size: 1.7em;
+    }
+    
+    .cloudImg{
+        height: 80px;
+        margin-left: -40%;
     }
 }
 </style>

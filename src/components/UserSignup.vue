@@ -7,7 +7,7 @@
             <v-spacer></v-spacer>
             <router-link class="links" to="/">Home</router-link>
             <router-link class="links" to="/login">Login</router-link>
-            <router-link  class="links" to="/contact">Contact Us</router-link>
+            <router-link class="links" to="/contact"> Contact Us</router-link>
         </v-app-bar>
         <section class="home">
             <div class="content">
@@ -93,9 +93,8 @@ import router from '@/router'
 }
 
 .card{
-    width: 700px;
-    height: 750px;
-    background-color: transparent;
+    width: 650px;
+    height: 600px;
     background-color: rgba(99, 202, 221, 0.142);
     border: 1px solid;
     padding: 10px;
@@ -109,7 +108,7 @@ import router from '@/router'
 }
 
 .links{
-    width: 7vw;
+    width: 8vw;
     position: relative;
     text-decoration: none;
     color: white;
@@ -150,6 +149,53 @@ import router from '@/router'
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+@media screen and (max-width: 899px) and (min-width: 600px) {
+    .links {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.cloudImg{
+    height: 150px;
+}
+
+.card{
+    width: 500px;
+    height: 600px;
+    margin-left: -17%;
+    background-color: rgba(99, 202, 221, 0.142);
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 20px 10px 18px #53dce6;
+}
+
+}
+
+
+@media screen and (max-width: 600px) and (min-width: 390px) {
+    .content {
+    margin: 0;
+    }
+    .card {
+        width: 350px;
+        margin-left: 6%;
+        margin-top: -15%;
+    }
+    img{
+        height: 100px;
+        margin-top: 10%;
+    }
+
+    .links {
+        text-align: center;
+        width: 100%;
+        padding: 7px;
+        font-size: 8px;
+}
+
 }
 </style>
 

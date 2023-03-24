@@ -23,7 +23,7 @@
             </div>
 
             <div class="section">
-                <h3>Click te button below to permanently delete your account.</h3>
+                <h2>Click the button below to permanently delete your account</h2>
                 <v-btn class="btn" @click="delete_acct">Delete Account</v-btn>
                             <div v-if="response">{{ response }}</div>
             </div>
@@ -106,16 +106,18 @@ import cookies from "vue-cookies";
 
 @media screen and (max-width: 899px) and (min-width: 600px) {
   .main {
-    width: 100%;
-    max-width: 900px;
-    padding: 40px;
+    width: 90%;
+    padding: 20px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) and (min-width: 390px) {
   .main {
-    width: 100%;
+    max-width: 900px;
     padding: 20px;
+  }
+  h2{
+    font-size: 1em;
   }
 }
 

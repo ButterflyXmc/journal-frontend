@@ -3,11 +3,10 @@
         <v-app-bar app color='#4d7f8a'>
             <img class="cloudImg" src="@/assets/cl.png" alt="clouds">
                 <v-spacer></v-spacer>
-                    <div class="links"><UserLogout></UserLogout></div>
+                    <div class="l"><UserLogout></UserLogout></div>
                     <router-link class="links" to="/profile"> Your Account</router-link>
                     <router-link class="links" to="/new-entry"> New Journal</router-link>
-                    <!-- <router-link class="links" to="/contact">Contact Us</router-link> -->
-                    <router-link class="links" to="/options">Journal options</router-link>
+                    <router-link class="links" to="/contact"> Contact Us</router-link>
         </v-app-bar>
             
             <v-container class="grid">
@@ -20,50 +19,67 @@
                                             and then converting it to an ISO string using toISOString(). I'm then using the 
                                             slice() method to extract the first 10 characters of the string, which correspond 
                                             to the yyyy-mm-dd part of the string. -->
-                                            {{ new Date(e.created_at).toISOString().slice(0, 10) }}
+                                            
+                                            <p class="date">{{ new Date(e.created_at).toISOString().slice(0, 10) }}</p>
                                         </v-card-title>
                                             <v-card-text>
+                                                <v-btn class="btn" @click="showEditForm(e)">Edit</v-btn>
+                                                <v-btn v-if="isEditing" class="cancel" @click="cancelEdit">Cancel</v-btn>
                                                 <h2>AM</h2>
-
-                                                    <v-btn @click="showEditForm(e)">Edit</v-btn>  
-
+                                                <img class="pic" src="@/assets/sun.png" alt="sun">
                                                     <div>Entry ID: {{ e.entryId }}</div>
-                                                    <h4>I am grateful for...</h4>
-                                                    <div>1. {{ e.grateful1 }}</div>
-                                                    <div>2. {{ e.grateful2 }}</div>
-                                                    <div>3. {{ e.grateful3 }}</div>
-                                                    <h4>What would make today great?</h4>
-                                                    <div>1. {{ e.great1 }}</div>
-                                                    <div>2.{{ e.great2 }}</div>
-                                                    <h4>Daily affirmation</h4>
-                                                    <div>Affirm 1: {{ e.affirm1 }}</div>
-                                                    <div>Affirm 2: {{ e.affirm2 }}</div>
-                                                    <h2>PM</h2>   
-                                                    <h4>Highlights of the Day</h4>
-                                                    <div> 1. {{ e.highlights1}}</div>
-                                                    <div>2.{{ e.highlights2 }}</div>
-                                                    <h4>What did I learn today?</h4>
-                                                    <div>1.{{ e.learn1 }}</div>
-                                                    <div>2.{{ e.learn2 }}</div>                                 
+                                                    <div class="morning">
+                                                        <h4>I am grateful for...</h4>
+                                                        <div>1. {{ e.grateful1 }}</div>
+                                                        <div>2. {{ e.grateful2 }}</div>
+                                                        <div>3. {{ e.grateful3 }}</div>
+                                                        <h4>What would make today great?</h4>
+                                                        <div>1. {{ e.great1 }}</div>
+                                                        <div>2.{{ e.great2 }}</div>
+                                                        <h4>Daily affirmation</h4>
+                                                        <div>1. {{ e.affirm1 }}</div>
+                                                        <div>2. {{ e.affirm2 }}</div>
+                                                    </div>
+                                                    
+                                                    <br>
+                                                        <h2>PM</h2>
+                                                        <img class="pic" src="@/assets/moon.png" alt="moon">
+                                                    <div class="night">
+                                                        <h4>Highlights of the Day</h4>
+                                                        <div> 1. {{ e.highlights1}}</div>
+                                                        <div>2. {{ e.highlights2 }}</div>
+                                                        <h4>What did I learn today?</h4>
+                                                        <div>1. {{ e.learn1 }}</div>
+                                                        <div>2. {{ e.learn2 }}</div> 
+                                                    </div>
+                                                                                    
                                             </v-card-text>
 
                                             <div v-if="showModal">
                                                 <div class="modal-content">
                                                         <form>
+                                                            <p>*Warning*</p>
+                                                            <p>Please note that when editing an entry, it is important to pay attention to 
+                                                                its corresponding Entry Id, as this will ensure that only the intended entry is edited.</p>
                                                             <v-text-field v-model="entryId" label="Entry Id"></v-text-field>
-                                                            <v-text-field v-model="grateful1" label="Grateful 1"></v-text-field>
-                                                            <v-text-field v-model="grateful2" label="Grateful 2"></v-text-field>
-                                                            <v-text-field v-model="grateful3" label="Grateful 3"></v-text-field>
-                                                            <v-text-field v-model="great1" label="Great 1"></v-text-field>
-                                                            <v-text-field v-model="great2" label="Great 2"></v-text-field>
-                                                            <v-text-field v-model="affirm1" label="Affirm 1"></v-text-field>
-                                                            <v-text-field v-model="affirm2" label="Affirm 2"></v-text-field>
-                                                            <v-text-field v-model="highlights1" label="Highlights 1"></v-text-field>
-                                                            <v-text-field v-model="highlights2" label="Highlights 2"></v-text-field>
-                                                            <v-text-field v-model="learn1" label="Learn 1"></v-text-field>
-                                                            <v-text-field v-model="learn2" label="Learn 2"></v-text-field>
-                                                            <v-btn @click="edit_user_entry">Update Entry</v-btn>
-                                                            <v-btn class="btn" @click="cancelEdit">Cancel</v-btn>
+                                                            <h4>I am grateful for...</h4>
+                                                            <v-text-field v-model="grateful1" label="1."></v-text-field>
+                                                            <v-text-field v-model="grateful2" label="2."></v-text-field>
+                                                            <v-text-field v-model="grateful3" label="3."></v-text-field>
+                                                            <h4>What would make today great?</h4>
+                                                            <v-text-field v-model="great1" label="1."></v-text-field>
+                                                            <v-text-field v-model="great2" label="2."></v-text-field>
+                                                            <h4>Daily affirmation</h4>
+                                                            <v-text-field v-model="affirm1" label="1."></v-text-field>
+                                                            <v-text-field v-model="affirm2" label="2."></v-text-field>
+                                                            <h4>Highlights of the Day</h4>
+                                                            <v-text-field v-model="highlights1" label="1."></v-text-field>
+                                                            <v-text-field v-model="highlights2" label="2."></v-text-field>
+                                                            <h4>What did I learn today?</h4>
+                                                            <v-text-field v-model="learn1" label="1."></v-text-field>
+                                                            <v-text-field v-model="learn2" label="2."></v-text-field>
+                                                            <v-btn class="btn" @click="edit_user_entry">Update Entry</v-btn>
+                                                            <v-btn class="cancel" @click="cancelEdit">Cancel</v-btn>
                                                             <div>
                                                                 <h1>Delete Entry</h1>
                                                                 <v-row align="center">
@@ -72,8 +88,8 @@
                                                             
                                                                     </v-col>
                                                                 </v-row>
-                                                                <v-btn @click="cancelEdit">Cancel</v-btn>
-                                                                        <v-btn @click="delete_entry">Delete</v-btn>
+                                                                <v-btn class="cancel" @click="cancelEdit">Cancel</v-btn>
+                                                                        <v-btn class="delete" @click="delete_entry">Delete</v-btn>
                                                             </div>
                                                         </form>
                                                 </div>
@@ -122,12 +138,9 @@ import UserLogout from '@/components/UserLogout.vue'
             }
         },
             methods:{
-                // showModal(e){
-                //     this.entryId = e.id
-                //     // this.showModal = true;
-                // },
                 cancelEdit(){
                         this.showModal = false;
+                        this.isEditing = false;
                 },
                 showEditForm(e) {
                         this.entryId = e.entryId
@@ -144,6 +157,7 @@ import UserLogout from '@/components/UserLogout.vue'
                         this.learn2 = e.learn2
                         this.content = e.content
                         this.showModal = true
+                        this.isEditing = true;
                 },
                 get_user_entries(){
                     this.token = cookies.get(`token`);
@@ -216,7 +230,7 @@ import UserLogout from '@/components/UserLogout.vue'
                         location.reload()
                     }).catch(()=>{
                         if (!this.entryID) {
-                            this.result = "Please enter an entry ID.";
+                            this.result = "Please enter this entry's ID.";
                             return;
                         }
                         this.result = "Failed to delete entry.";
@@ -230,6 +244,35 @@ import UserLogout from '@/components/UserLogout.vue'
 </script>
 
 <style scoped>
+.morning{
+    background-color: rgba(245, 245, 220, 0.354);
+    padding: 20px;
+    border-radius: 10px;
+}
+.night{
+    background-color: rgba(0, 102, 255, 0.116);
+    padding: 20px;
+    border-radius: 10px;
+}
+.pic{
+    height: 80px;
+}
+.btn{
+    background-color: rgba(0, 255, 38, 0.251) !important;
+    color: white;
+    margin: 20px;
+}
+.cancel{
+    background-color: rgba(0, 132, 255, 0.299) !important;
+    color: white;
+    margin: 20px;
+}
+
+.delete{
+    background-color: rgba(215, 89, 97, 0.361) !important;
+    color: white;
+    margin: 20px;
+}
 .v-card {
     background-color: rgba(0, 166, 255, 0.089);
     max-width: 600px;
@@ -246,8 +289,17 @@ import UserLogout from '@/components/UserLogout.vue'
 .pm{
     background-color: rgba(8, 60, 202, 0.17);
 }
-/* .grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-} */
+.date{
+    margin-left: 34%;
+}
+
+@media screen and (max-width: 899px) and (min-width: 600px){
+    .cloudImg{
+        height: 170px;
+        margin-left: -20%;
+    }
+    .date{
+        margin-left: 41%;
+    }
+}
 </style>

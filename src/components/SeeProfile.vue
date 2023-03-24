@@ -4,7 +4,7 @@
                 <img class="cloudImg" src="@/assets/cl.png" alt="clouds">
                 <v-spacer></v-spacer>
                 <router-link class="links" to="/journal">Your Journal</router-link>
-                <div class="links"><UserLogout></UserLogout></div>
+                <div class="l"><UserLogout></UserLogout></div>
                 <!-- <router-link class="links" to="/contact">Contact Us</router-link> -->
         </v-app-bar>
 
@@ -227,11 +227,11 @@ h4{
     margin-right: 10px;
 }
 
-.dbtn{
-    background-color: rgba(236, 53, 53, 0.195) !important
+.delete{
+    background-color: rgba(236, 53, 53, 0.119) !important
 }
 
-.btn, .dbtn{
+.btn{
     position: relative;
     text-decoration: none;
     color: white;
@@ -249,8 +249,8 @@ h4{
     background-color: rgb(32, 153, 228);
     transition: 0.5s;
 }
-.dbtn:before,
-.dbtn:after{
+.delete:before,
+.delete:after{
     content: "";
     position: absolute;
     height: 5px;
@@ -259,7 +259,7 @@ h4{
     transition: 0.5s;
 }
 
-.dbtn:after{
+.delete:after{
     left: 0;
     bottom: -10px;
 }
@@ -268,12 +268,88 @@ h4{
     bottom: -10px;
 }
 
-.dbtn:hover:after,
-.dbtn:hover:before{
+.delete:hover:after,
+.delete:hover:before{
     width: 100%
 }
 .btn:hover:after,
 .btn:hover:before{
     width: 100%
 }
+
+.delete:hover:after,
+.delete:hover:before{
+    width: 100%
+}
+.btn:hover:after,
+.btn:hover:before{
+    width: 100%
+}
+
+/* For tablet screens up to 768px */
+@media screen and (max-width: 899px) and (min-width: 600px) {
+.delete {
+    width: 12vw;
+    font-size: 0.8em;
+}
+
+.card {
+    width: 80%;
+    margin-top: 15%;
+}
+
+.card-header h2 {
+    font-size: 1.2em;
+}
+
+.btn{
+    font-size: 19px;
+}
+.delete{
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    width: 20%;
+}
+}
+
+/* For phone screens up to 390px */
+@media screen and (max-width: 600px) and (min-width: 390px) {
+.cloudImg{
+    height: 100px;
+}
+.delete {
+    width: 18vw;
+    font-size: 0.6em;
+}
+
+.card {
+    width: 90%;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.card-header h2 {
+    font-size: 1em;
+}
+
+.delete {
+    font-size: 0.7em;
+    border-radius: 10px;
+    font-size: 0.6em;
+    padding: 10px;
+    width: 30%;
+}
+
+h4{
+    font-size: 1em;
+}
+
+.card-container{
+    margin-top: 20%;
+}
+
+}
+
+
 </style>
