@@ -162,7 +162,7 @@ import UserLogout from '@/components/UserLogout.vue'
                 get_user_entries(){
                     this.token = cookies.get(`token`);
                     axios.request({
-                        url:"http://127.0.0.1:5000/api/journal",
+                        url:"https://mchavda.com/api/journal",
                         method: "GET",
                         headers:{
                             token: this.token,
@@ -203,7 +203,7 @@ import UserLogout from '@/components/UserLogout.vue'
                                     };
                         axios
                             .request({
-                            url: "http://127.0.0.1:5000/api/journal",
+                            url: "https://mchavda.com/api/journal",
                             method: "PATCH",
                             data: updateData,
                             headers: {
@@ -218,7 +218,7 @@ import UserLogout from '@/components/UserLogout.vue'
                 delete_entry(){
                     this.token = cookies.get(`token`);
                     axios.request({
-                        url:"http://127.0.0.1:5000/api/journal",
+                        url:"https://mchavda.com/api/journal",
                         method:"DELETE",
                         headers:{
                             token :this.token,

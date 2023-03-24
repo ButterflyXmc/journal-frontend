@@ -62,7 +62,7 @@ import router from '@/router'
             methods:{
                 signup(){
                     axios.request({
-                        url:"http://127.0.0.1:5000/api/user",
+                        url:"https://mchavda.com/api/user",
                         method: "POST",
                         data:{
                             firstName : this.firstName,

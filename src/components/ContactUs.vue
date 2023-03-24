@@ -60,7 +60,7 @@ import axios from 'axios';
                     }
                     axios
                         .request({
-                        url: "http://127.0.0.1:5000/api/contact-us",
+                        url: "https://mchavda.com/api/contact-us",
                         method: "POST",
                         data:{
                             name : this.name,

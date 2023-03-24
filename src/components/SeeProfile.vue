@@ -73,7 +73,7 @@ export default {
                         this.token = cookies.get(`token`);
                     axios
                         .request({
-                        url: "http://127.0.0.1:5000/api/user",
+                        url: "https://mchavda.com/api/user",
                         method: "GET",
                         headers: {
                             token: this.token,
@@ -88,7 +88,7 @@ export default {
                             this.token = cookies.get(`token`);
                         axios
                             .request({
-                            url: "http://127.0.0.1:5000/api/user",
+                            url: "https://mchavda.com/api/user",
                             method: "PATCH",
                             data: {
                                 firstName: this.firstName || undefined,

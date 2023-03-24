@@ -116,7 +116,7 @@ import GetQuote from '@/components/GetQuote.vue'
             create_new_entries(){
                 this.token = cookies.get(`token`);
                 axios.request({
-                    url:"http://127.0.0.1:5000/api/journal",
+                    url:"https://mchavda.com/api/journal",
                     method: "POST",
                     headers:{
                         token : this.token

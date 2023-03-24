@@ -21,7 +21,7 @@ import cookies from "vue-cookies";
             user_logout(){
                 this.token = cookies.get(`token`);
                 axios.request({
-                    url:"http://127.0.0.1:5000/api/user-login",
+                    url:"https://mchavda.com/api/user-login",
                     method:"DELETE",
                     headers:{
                         token :this.token,

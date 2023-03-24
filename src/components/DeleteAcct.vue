@@ -46,22 +46,21 @@ import cookies from "vue-cookies";
         },
         methods:{
             delete_acct(){
-                                    this.token = cookies.get(`token`);
-                                    axios
-                                        .request({
-                                        url: "http://127.0.0.1:5000/api/user",
-                                        method: "DELETE",
-                                        headers: {
-                                            token: this.token,
-                                        },
-                                        }).then(() => {
-                                        // console.log("Acct deleted");
-                                        this.response = "Account was deleted Succesfully"
-                                        }).catch(() => {
-                                        this.response = "An unexpected error has occured, please try again!"
-                                        });
-                                        
-                                },
+                      this.token = cookies.get(`token`);
+                      axios
+                          .request({
+                          url: "https://mchavda.com/api/user",
+                          method: "DELETE",
+                          headers: {
+                              token: this.token,
+                          },
+                          }).then(() => {
+                          // console.log("Acct deleted");
+                          this.response = "Account was deleted Succesfully"
+                          }).catch(() => {
+                          this.response = "An unexpected error has occured, please try again!"
+                          });
+            },
         }
     }
 </script>

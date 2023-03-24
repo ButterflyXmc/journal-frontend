@@ -38,7 +38,7 @@ export default {
             }
             const date = this.selectedDate;
             const token = cookies.get('token');
-            axios.get(`http://127.0.0.1:5000/api/journal?${date}`, {
+            axios.get(`https://mchavda.com/api/journal?${date}`, {
                 headers: { token }
             })
             .then(response => {
