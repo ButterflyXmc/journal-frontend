@@ -15,13 +15,14 @@ import cookies from "vue-cookies";
         data() {
             return {
                 token: "",
+                apiUrl : process.env.VUE_APP_API_URL
             }
         },
         methods:{
             user_logout(){
                 this.token = cookies.get(`token`);
                 axios.request({
-                    url:"https://mchavda.com/api/user-login",
+                    url: this.apiUrl+"/user-login",
                     method:"DELETE",
                     headers:{
                         token :this.token,

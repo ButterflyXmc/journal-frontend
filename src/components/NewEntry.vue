@@ -110,13 +110,14 @@ import GetQuote from '@/components/GetQuote.vue'
                 highlights2:"",
                 learn1:"",
                 learn2:"",
+                apiUrl : process.env.VUE_APP_API_URL
             }
         },
         methods:{
             create_new_entries(){
                 this.token = cookies.get(`token`);
                 axios.request({
-                    url:"https://mchavda.com/api/journal",
+                    url: this.apiUrl+"/journal",
                     method: "POST",
                     headers:{
                         token : this.token

@@ -41,7 +41,8 @@ import cookies from "vue-cookies";
         name: "DeleteAcct",
         data() {
             return {
-                response: null
+                response: null,
+                apiUrl : process.env.VUE_APP_API_URL
             }
         },
         methods:{
@@ -49,7 +50,7 @@ import cookies from "vue-cookies";
                       this.token = cookies.get(`token`);
                       axios
                           .request({
-                          url: "https://mchavda.com/api/user",
+                          url: this.apiUrl+"/user",
                           method: "DELETE",
                           headers: {
                               token: this.token,

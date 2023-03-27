@@ -49,7 +49,8 @@ import axios from 'axios';
                 name: "",
                 email: "",
                 msg: "",
-                rate: null
+                rate: null,
+                apiUrl : process.env.VUE_APP_API_URL
             }
         },
             methods:{
@@ -60,7 +61,7 @@ import axios from 'axios';
                     }
                     axios
                         .request({
-                        url: "https://mchavda.com/api/contact-us",
+                        url: this.apiUrl+"/contact-us",
                         method: "POST",
                         data:{
                             name : this.name,

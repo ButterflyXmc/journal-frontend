@@ -56,13 +56,14 @@ import router from '@/router'
                 userName:"",
                 email: "",
                 password: "",
-                showPassword: false
+                showPassword: false,
+                apiUrl : process.env.VUE_APP_API_URL
             }
         },
             methods:{
                 signup(){
                     axios.request({
-                        url:"https://mchavda.com/api/user",
+                        url: this.apiUrl+"/user",
                         method: "POST",
                         data:{
                             firstName : this.firstName,

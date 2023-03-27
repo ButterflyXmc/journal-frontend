@@ -134,7 +134,8 @@ import UserLogout from '@/components/UserLogout.vue'
                 learn2: "",
                 created_at: "",
                 showModal : false,
-                result : null
+                result : null,
+                apiUrl : process.env.VUE_APP_API_URL
             }
         },
             methods:{
@@ -162,7 +163,7 @@ import UserLogout from '@/components/UserLogout.vue'
                 get_user_entries(){
                     this.token = cookies.get(`token`);
                     axios.request({
-                        url:"https://mchavda.com/api/journal",
+                        url: this.apiUrl+"/journal",
                         method: "GET",
                         headers:{
                             token: this.token,
@@ -203,7 +204,7 @@ import UserLogout from '@/components/UserLogout.vue'
                                     };
                         axios
                             .request({
-                            url: "https://mchavda.com/api/journal",
+                            url: this.apiUrl+"/journal",
                             method: "PATCH",
                             data: updateData,
                             headers: {
@@ -218,7 +219,7 @@ import UserLogout from '@/components/UserLogout.vue'
                 delete_entry(){
                     this.token = cookies.get(`token`);
                     axios.request({
-                        url:"https://mchavda.com/api/journal",
+                        url: this.apiUrl+"/journal",
                         method:"DELETE",
                         headers:{
                             token :this.token,

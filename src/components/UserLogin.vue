@@ -52,7 +52,8 @@ import router from '@/router'
                 result: "",
                 username: "",
                 password: "",
-                showPassword: false
+                showPassword: false,
+                apiUrl : process.env.VUE_APP_API_URL
             }
         },
         methods:{
@@ -62,7 +63,7 @@ import router from '@/router'
                     return
                 }
                 axios.request({
-                    url:"https://mchavda.com/api/user-login",
+                    url: this.apiUrl+"/user-login",
                     method : "POST",
                     data:{
                         username : this.username,

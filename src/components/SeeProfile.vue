@@ -66,6 +66,7 @@ export default {
             created_at: "", 
             response: "",
             editUser : false,
+            apiUrl : process.env.VUE_APP_API_URL
             };
         },
         methods: {
@@ -73,7 +74,7 @@ export default {
                         this.token = cookies.get(`token`);
                     axios
                         .request({
-                        url: "https://mchavda.com/api/user",
+                        url: this.apiUrl+"/user",
                         method: "GET",
                         headers: {
                             token: this.token,
@@ -88,7 +89,7 @@ export default {
                             this.token = cookies.get(`token`);
                         axios
                             .request({
-                            url: "https://mchavda.com/api/user",
+                            url: this.apiUrl+"/user",
                             method: "PATCH",
                             data: {
                                 firstName: this.firstName || undefined,
